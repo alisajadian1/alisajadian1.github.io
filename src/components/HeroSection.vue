@@ -7,22 +7,18 @@
             <span class="subheading">Hey! I am</span>
             <h1>Karim Ezzat</h1>
             <div>
-              "I am a"
-              <div id="typed-strings" style="display: none">
-                <span>Freelancer</span>
-                <span>Web Designer</span>
-                <span>Developer</span>
-                <span>Marketer</span>
-              </div>
-              <span class="LR-C" id="typed" style="white-space: pre"></span>
-              <span class="typed-cursor"></span>
+              I'm a {{ printedSkill }}
+              <!-- <span class="LR-C" id="typed" style="white-space: pre"></span> -->
+              <span class="typed-cursor" :class="{ 'blink-cursor': showCursor }"
+                >|</span
+              >
             </div>
             <p>
               Lorem ipsum dolor sit, amet consectetur adipisicing elit.
               Reiciendis molestiae ipsum aliquid explicabo cumque possimus aut
               distinctio eligendi?
             </p>
-            <a href="#" class="btn radius-btn">Download</a>
+            <a href="#" class="btn1 radius-btn">Download</a>
           </div>
         </div>
         <div class="col-lg-6 d-none d-lg-block"></div>
@@ -31,6 +27,57 @@
     <div class="hero-shape custom-animation"></div>
   </section>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      mySkills: ["Freelancer.", "Developer.", "Web Designer.", "Marketer."],
+      printedSkill: "",
+      currentWordIndex: 0,
+      currentLetterIndex: 0,
+      showCursor: true,
+    };
+  },
+  methods: {
+    changeTitle() {
+      console.log(this.mySkills);
+      const printingTiming = setInterval(() => {
+        if (this.currentWordIndex < this.mySkills.length) {
+          let currentSkill = this.mySkills[this.currentWordIndex];
+
+          if (this.currentLetterIndex < currentSkill.length) {
+            this.printedSkill += currentSkill[this.currentLetterIndex];
+            this.currentLetterIndex++;
+          } else {
+            // Pause after finishing the subarray
+            setTimeout(() => {
+              // Deleting the current letter
+              this.printedSkill = this.printedSkill.slice(0, -1);
+
+              if (this.printedSkill === "") {
+                this.currentWordIndex++;
+                this.currentLetterIndex = 0;
+                this.printedSkill += " ";
+              }
+            }, 800);
+          }
+        } else {
+          this.resetData();
+        }
+      }, 150);
+    },
+    resetData() {
+      this.currentLetterIndex = 0;
+      this.currentWordIndex = 0;
+      clearInterval(this.printingTiming);
+    },
+  },
+  mounted() {
+    this.changeTitle();
+  },
+};
+</script>
 
 <style>
 .hero-area {
@@ -74,23 +121,7 @@
   padding-right: 155px;
 }
 
-.btn::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: #e45447;
-  z-index: 1;
-  border-radius: 5px;
-  transition: transform 0.5s;
-  transform: scale(0);
-  transform-origin: 0 0;
-  transition-timing-function: cubic-bezier(02, 1.6, 0.4, 0.7);
-}
-
-.btn {
+.btn1 {
   background: #90acd1;
   text-transform: capitalize;
   color: #fff;
@@ -98,17 +129,50 @@
   display: inline-block;
   font-size: 16px;
   font-weight: 400;
-  letter-spacing: 1px;
+  letter-spacing: 1;
   line-height: 0;
-  transition: 0.4s linear;
   position: relative;
   z-index: 1;
   border: 0;
   overflow: hidden;
+  text-decoration: none;
 }
 
 .radius-btn {
-  padding: 250px 43px;
+  padding: 25px 43px;
   border-radius: 30px;
+}
+
+.btn1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-color: #e45447;
+
+  transition: transform 300ms ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.btn1:hover::before,
+.btn1:focus::before {
+  transform: scaleX(1);
+}
+
+.blink-cursor {
+  animation: blink 0.6s infinite alternate;
+}
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 </style>
