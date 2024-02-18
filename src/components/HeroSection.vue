@@ -119,7 +119,7 @@ export default {
 
     async changeTitle() {
       while (this.currentWordIndex < this.mySkills.length) {
-        await this.combineWriteAndDelete();
+        await this.WriteAndDelete();
       }
 
       this.resetData();
