@@ -5,7 +5,7 @@
         <div class="col-lg-6 col-md-6">
           <div class="hero-caption">
             <span class="subheading">Hey! I am</span>
-            <h1>Karim Ezzat</h1>
+            <h1>Ali Sajadian</h1>
             <div>
               I'm a {{ printedSkill }}
               <!-- <span class="LR-C" id="typed" style="white-space: pre"></span> -->
@@ -39,9 +39,8 @@ export default {
       showCursor: true,
     };
   },
-  methods: {
+  /* methods: {
     changeTitle() {
-      console.log(this.mySkills);
       const printingTiming = setInterval(() => {
         if (this.currentWordIndex < this.mySkills.length) {
           let currentSkill = this.mySkills[this.currentWordIndex];
@@ -72,7 +71,67 @@ export default {
       this.currentWordIndex = 0;
       clearInterval(this.printingTiming);
     },
+  }, */
+
+  methods: {
+    async writeSkill(currentSkill) {
+      return new Promise((resolve) => {
+        const writingInterval = setInterval(() => {
+          if (this.currentLetterIndex < currentSkill.length) {
+            this.printedSkill += currentSkill[this.currentLetterIndex];
+            this.currentLetterIndex++;
+          } else {
+            clearInterval(writingInterval);
+            resolve();
+          }
+        }, 150);
+      });
+    },
+
+    async deleteSkill() {
+      return new Promise((resolve) => {
+        const deletingInterval = setInterval(() => {
+          if (this.printedSkill !== "") {
+            this.printedSkill = this.printedSkill.slice(0, -1);
+          } else {
+            clearInterval(deletingInterval);
+            resolve();
+          }
+        }, 150);
+      });
+    },
+
+    async pause(duration) {
+      return new Promise((resolve) => setTimeout(resolve, duration));
+    },
+
+    async WriteAndDelete() {
+      const currentSkill = this.mySkills[this.currentWordIndex];
+
+      await this.writeSkill(currentSkill);
+      await this.pause(800);
+      await this.deleteSkill();
+
+      this.currentWordIndex++;
+      this.currentLetterIndex = 0;
+      this.printedSkill += " ";
+    },
+
+    async changeTitle() {
+      while (this.currentWordIndex < this.mySkills.length) {
+        await this.combineWriteAndDelete();
+      }
+
+      this.resetData();
+      this.changeTitle();
+    },
+
+    resetData() {
+      this.currentLetterIndex = 0;
+      this.currentWordIndex = 0;
+    },
   },
+
   mounted() {
     this.changeTitle();
   },
