@@ -35,7 +35,6 @@ export default {
       mySkills: ["Freelancer.", "Developer.", "Web Designer.", "Marketer."],
       printedSkill: "",
       currentWordIndex: 0,
-      currentLetterIndex: 0,
       showCursor: true,
     };
   },
@@ -76,15 +75,17 @@ export default {
   methods: {
     async writeSkill(currentSkill) {
       return new Promise((resolve) => {
+        let currentLetterIndex = 0;
         const writingInterval = setInterval(() => {
           if (this.currentLetterIndex < currentSkill.length) {
             this.printedSkill += currentSkill[this.currentLetterIndex];
             this.currentLetterIndex++;
           } else {
+            this.currentLetterIndex = 0;
             clearInterval(writingInterval);
             resolve();
           }
-        }, 150);
+        }, 200);
       });
     },
 
@@ -97,7 +98,7 @@ export default {
             clearInterval(deletingInterval);
             resolve();
           }
-        }, 150);
+        }, 50);
       });
     },
 
@@ -111,10 +112,9 @@ export default {
       await this.writeSkill(currentSkill);
       await this.pause(800);
       await this.deleteSkill();
+      await this.pause(300);
 
       this.currentWordIndex++;
-      this.currentLetterIndex = 0;
-      this.printedSkill += " ";
     },
 
     async changeTitle() {
@@ -127,7 +127,6 @@ export default {
     },
 
     resetData() {
-      this.currentLetterIndex = 0;
       this.currentWordIndex = 0;
     },
   },
@@ -223,7 +222,7 @@ export default {
 }
 
 .blink-cursor {
-  animation: blink 0.6s infinite alternate;
+  animation: blink 0.3s infinite alternate;
 }
 
 @keyframes blink {
