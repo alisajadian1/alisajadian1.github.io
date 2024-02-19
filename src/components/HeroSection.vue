@@ -2,7 +2,7 @@
   <section class="hero-area sky-blue d-flex align-items-center">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-lg-6 col-md-6">
+        <div class="col-lg-6 col-md-12">
           <div class="hero-caption">
             <span class="subheading">Hey! I am</span>
             <h1>Ali Sajadian</h1>
@@ -21,10 +21,22 @@
             <a href="#" class="btn1 radius-btn">Download</a>
           </div>
         </div>
-        <div class="col-lg-6 d-none d-lg-block"></div>
+        <div class="col-lg-6 d-none d-lg-block">
+          <div class="hero-img">
+            <img
+              src="https://cobra-nuxt3.netlify.app/img/welcome-area/hero_right.png"
+              alt="Hero Image"
+            />
+          </div>
+        </div>
       </div>
     </div>
-    <div class="hero-shape custom-animation"></div>
+    <div class="hero-shape custom-animation">
+      <img
+        src="https://cobra-nuxt3.netlify.app/img/welcome-area/hero-shape.png"
+        alt=""
+      />
+    </div>
   </section>
 </template>
 
@@ -38,39 +50,6 @@ export default {
       showCursor: true,
     };
   },
-  /* methods: {
-    changeTitle() {
-      const printingTiming = setInterval(() => {
-        if (this.currentWordIndex < this.mySkills.length) {
-          let currentSkill = this.mySkills[this.currentWordIndex];
-
-          if (this.currentLetterIndex < currentSkill.length) {
-            this.printedSkill += currentSkill[this.currentLetterIndex];
-            this.currentLetterIndex++;
-          } else {
-            // Pause after finishing the subarray
-            setTimeout(() => {
-              // Deleting the current letter
-              this.printedSkill = this.printedSkill.slice(0, -1);
-
-              if (this.printedSkill === "") {
-                this.currentWordIndex++;
-                this.currentLetterIndex = 0;
-                this.printedSkill += " ";
-              }
-            }, 800);
-          }
-        } else {
-          this.resetData();
-        }
-      }, 150);
-    },
-    resetData() {
-      this.currentLetterIndex = 0;
-      this.currentWordIndex = 0;
-      clearInterval(this.printingTiming);
-    },
-  }, */
 
   methods: {
     async writeSkill(currentSkill) {
@@ -110,9 +89,9 @@ export default {
       const currentSkill = this.mySkills[this.currentWordIndex];
 
       await this.writeSkill(currentSkill);
-      await this.pause(800);
+      await this.pause(1000);
       await this.deleteSkill();
-      await this.pause(300);
+      await this.pause(500);
 
       this.currentWordIndex++;
     },
@@ -223,6 +202,51 @@ export default {
 
 .blink-cursor {
   animation: blink 0.3s infinite alternate;
+}
+
+.hero-img {
+  float: right;
+}
+
+.hero-area .hero-shape {
+  position: absolute;
+  top: 13%;
+  left: 51%;
+}
+
+.custom-animation {
+  backface-visibility: hidden;
+  animation: jumping 9s ease-in-out 2s infinite alternate;
+  animation-delay: 1s;
+  transition: all 7s ease 2s;
+  user-select: none;
+}
+
+@keyframes jumping {
+  0% {
+    transform: translateY(10px) translateX(0) rotate(0) scale(1);
+    opacity: 0.9;
+  }
+  20% {
+    transform: translateY(20px) translateX(10px) rotate(-20deg) scale(0.8);
+    opacity: 0.8;
+  }
+  40% {
+    transform: translateY(15px) translateX(-15px) rotate(10deg) scale(0.75);
+    opacity: 0.8;
+  }
+  40% {
+    transform: translateY(-15px) translateX(-25px) rotate(10deg) scale(0.5);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(-30px) translateX(20px) rotate(-20deg) scale(0.75);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(15px) translateX(15px) rotate(0) scale(0.95);
+    opacity: 0.7;
+  }
 }
 
 @keyframes blink {
