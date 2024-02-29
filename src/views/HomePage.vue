@@ -1,6 +1,6 @@
 <template>
   <main>
-    <HeroSection />
+    <HeroSection class="nav-bar" />
     <AboutSection />
     <ResumeSection />
   </main>
@@ -19,3 +19,5 @@ export default {
   },
 };
 </script>
+
+<style scoped></style>

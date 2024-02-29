@@ -99,13 +99,16 @@
 </template>
 
 <style>
+.main-header {
+  background-color: #fff;
+}
+
 .header-transparent {
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
   z-index: 1000;
-  padding: 10px 0; /* Add padding to the header */
 }
 
 .logo img {
