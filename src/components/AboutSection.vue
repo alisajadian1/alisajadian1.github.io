@@ -51,13 +51,13 @@
 
 <script></script>
 
-<style scoped>
+<style>
 section {
   display: block;
 }
 
-.sky-blue {
-  background-color: #fff;
+.about-area {
+  background-color: #f9f9ff;
 }
 
 .section-padding {

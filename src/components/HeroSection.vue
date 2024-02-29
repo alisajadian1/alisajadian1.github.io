@@ -1,5 +1,5 @@
 <template>
-  <section class="hero-area sky-blue d-flex align-items-center">
+  <section class="hero-area d-flex align-items-center">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6 col-md-12">
@@ -117,13 +117,14 @@ export default {
 </script>
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 .hero-area {
   position: relative;
   min-height: 1000px;
-}
-
-.sky-blue {
-  background: #f9f9ff;
+  background: #fff;
 }
 
 .hero-area .hero-caption {
