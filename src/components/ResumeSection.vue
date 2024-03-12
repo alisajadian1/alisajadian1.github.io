@@ -13,13 +13,25 @@
           <nav id="navi">
             <ul>
               <li>
-                <a href="" class="current">Education</a>
+                <a
+                  href="#education"
+                  :class="{ current: activeSection === 'Education' }"
+                  >Education</a
+                >
               </li>
               <li>
-                <a href="" class="">Experience</a>
+                <a
+                  href="#experience"
+                  :class="{ current: activeSection === 'Experience' }"
+                  >Experience</a
+                >
               </li>
               <li>
-                <a href="" class="">Skills</a>
+                <a
+                  href="#skills"
+                  :class="{ current: activeSection === 'Skills' }"
+                  >Skills</a
+                >
               </li>
             </ul>
           </nav>
@@ -186,7 +198,32 @@
   </section>
 </template>
 
-<script></script>
+<script>
+export default {
+  data() {
+    return {
+      activeSection: "Education",
+    };
+  },
+  methods: {
+    changeResumeSection() {
+      const scrollPosition = window.scrollY;
+      console.log(scrollPosition);
+
+      if (scrollPosition < 2400) {
+        this.activeSection = "Education";
+      } else if (2400 < scrollPosition && scrollPosition < 3200) {
+        this.activeSection = "Experience";
+      } else {
+        this.activeSection = "Skills";
+      }
+    },
+  },
+  mounted() {
+    window.addEventListener("scroll", this.changeResumeSection);
+  },
+};
+</script>
 
 <style>
 .resume-area {

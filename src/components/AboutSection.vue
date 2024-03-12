@@ -4,11 +4,7 @@
       <div class="row align-items-center">
         <div class="col-lg-6 d-none d-lg-block">
           <div class="img-about">
-            <img
-              src="https://cobra-nuxt3.netlify.app/img/about-area/about.jpg"
-              alt=""
-              class="img-fluid"
-            />
+            <img src="@/assets/aboutphoto.jpg" alt="" class="img-fluid" />
           </div>
         </div>
         <div class="col-lg-6 col-md-12">
@@ -17,9 +13,11 @@
               <h2>About Me</h2>
             </div>
             <p>
-              I’m a Front End Developer. I have a Passion for Creating Clean,
-              Beautiful, Interactive, Minimalistic, Responsive and User Friendly
-              UI, Developed by Modular, Scalable and Functional Code.
+              I'm Ali Sajadian, a Frontend Developer passionate about creating
+              seamless digital experiences. With a background in HTML, CSS, and
+              JavaScript, I specialize in the Vue.js framework. Formerly a
+              Content Specialist and Graphic Designer, I bring a unique blend of
+              creativity and technical expertise to my work.
             </p>
             <ul class="about-info mt-4">
               <li>
@@ -52,12 +50,20 @@
 <script></script>
 
 <style>
+:root {
+  --primary-color: #3498db; /*(a shade of blue)*/
+  --accent-color: #e74c3c; /*(a shade of red)*/
+  --background-color: #ecf0f1; /*(a light gray/blue) */
+  --text-color: #2c3e50; /*(a dark gray/blue) */
+}
+
 section {
   display: block;
 }
 
 .about-area {
-  background-color: #f9f9ff;
+  background-color: var(--background-color);
+  /* background-color: #f9f9ff; */
 }
 
 .section-padding {
@@ -65,7 +71,8 @@ section {
 }
 
 .about-area .img-about img {
-  outline: 10px solid #90acd1;
+  outline: 10px solid var(--accent-color);
+  /* outline: 10px solid #90acd1; */
   outline-offset: -54px;
   border: 44px solid transparent;
   border-width: 0px 10px 0px 85px;

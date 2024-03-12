@@ -5,7 +5,7 @@
         <div class="row align-items-center">
           <div class="col-xl-2 col-lg-2 col-md-2">
             <div class="logo">
-              <img src="@/assets/logo.svg" alt="Logo" />
+              <img src="@/assets/mylogo.svg" alt="Logo" />
             </div>
           </div>
           <div class="col-xl-10 col-lg-10 col-md-10">
@@ -41,9 +41,9 @@
                 >
                   <span class="slicknav-menutxt">Menu</span>
                   <span class="slicknav-icon">
-                    <span slicknav-icon-bar></span>
-                    <span slicknav-icon-bar></span>
-                    <span slicknav-icon-bar></span>
+                    <span class="slicknav-icon-bar"></span>
+                    <span class="slicknav-icon-bar"></span>
+                    <span class="slicknav-icon-bar"></span>
                   </span>
                 </a>
                 <ul
@@ -101,6 +101,7 @@
 <style>
 .main-header {
   background-color: #fff;
+  padding-top: 10px;
 }
 
 .header-transparent {
@@ -116,7 +117,7 @@
   padding: 0;
   border: 0;
   outline: 0;
-  max-width: 50px;
+  max-width: 200px;
   height: auto;
   vertical-align: middle;
 }
@@ -164,5 +165,80 @@
   height: 1px;
   width: 0px;
   transition: all 0.3s ease 0s;
+}
+
+.mobile-menu {
+  position: absolute;
+  right: 0px;
+  width: 100%;
+  z-index: 99;
+}
+
+.slicknav-menu {
+  font-size: 16px;
+  box-sizing: border-box;
+  background-color: transparent;
+  margin-top: 5px;
+}
+
+.slicknav-menu::before {
+  content: "";
+  display: table;
+}
+
+.slicknav-btn {
+  box-sizing: border-box;
+  display: block;
+  top: -43px;
+  background-color: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  right: 5px;
+  margin-top: -5px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: -15px;
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  float: right;
+  line-height: 1.125rem;
+  z-index: 99;
+}
+
+.slicknav-menu .slicknav-menutxt {
+  display: none;
+}
+
+.slicknav-menu .slicknav-icon {
+  margin-right: 6px;
+  margin-top: 3px;
+  position: relative;
+  right: 5px;
+  top: 5px;
+  padding-bottom: 3px;
+  float: left;
+  width: 1.125em;
+  height: 0.87em;
+}
+
+.slicknav-icon-bar {
+  position: relative;
+  display: block;
+  background-color: #e45447 !important;
+  height: 3px;
+  width: 30px;
+  margin: 5px 0;
+  transition: all 0.3s ease 0s;
+}
+
+.slicknav-icon-bar::before {
+  content: "";
+  background-color: transparent;
+  width: 1.125em;
+  height: 0.875em;
+  display: block;
+  position: absolute;
 }
 </style>
