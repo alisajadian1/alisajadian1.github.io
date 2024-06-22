@@ -43,7 +43,19 @@
               <div
                 class="icon d-flex align-items-center justify-content-center"
               >
-                <span class="icon-graduation"></span>
+                <span class="icon-graduation">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="1.5em"
+                    height="1.5em"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill="white"
+                      d="M16 6.28a1.23 1.23 0 0 0-.62-1.07l-6.74-4a1.27 1.27 0 0 0-1.28 0l-6.75 4a1.25 1.25 0 0 0 0 2.15l1.92 1.12v2.81a1.28 1.28 0 0 0 .62 1.09l4.25 2.45a1.28 1.28 0 0 0 1.24 0l4.25-2.45a1.28 1.28 0 0 0 .62-1.09V8.45l1.24-.73v2.72H16zm-3.73 5L8 13.74l-4.22-2.45V9.22l3.58 2.13a1.29 1.29 0 0 0 1.28 0l3.62-2.16zM8 10.27l-6.75-4L8 2.26l6.75 4z"
+                    />
+                  </svg>
+                </span>
               </div>
               <div class="text ps-3">
                 <span class="date">2016-2021</span>
@@ -61,7 +73,19 @@
               <div
                 class="icon d-flex align-items-center justify-content-center"
               >
-                <span class="icon-graduation"></span>
+                <span class="icon-graduation">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="1.5em"
+                    height="1.5em"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill="white"
+                      d="M16 6.28a1.23 1.23 0 0 0-.62-1.07l-6.74-4a1.27 1.27 0 0 0-1.28 0l-6.75 4a1.25 1.25 0 0 0 0 2.15l1.92 1.12v2.81a1.28 1.28 0 0 0 .62 1.09l4.25 2.45a1.28 1.28 0 0 0 1.24 0l4.25-2.45a1.28 1.28 0 0 0 .62-1.09V8.45l1.24-.73v2.72H16zm-3.73 5L8 13.74l-4.22-2.45V9.22l3.58 2.13a1.29 1.29 0 0 0 1.28 0l3.62-2.16zM8 10.27l-6.75-4L8 2.26l6.75 4z"
+                    />
+                  </svg>
+                </span>
               </div>
               <div class="text ps-3">
                 <span class="date">2021-2022</span>
@@ -79,7 +103,23 @@
               <div
                 class="icon d-flex align-items-center justify-content-center"
               >
-                <span class="icon-graduation"></span>
+                <div
+                  class="icon d-flex align-items-center justify-content-center"
+                >
+                  <span class="icon-graduation">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="1.5em"
+                      height="1.5em"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        fill="white"
+                        d="M16 6.28a1.23 1.23 0 0 0-.62-1.07l-6.74-4a1.27 1.27 0 0 0-1.28 0l-6.75 4a1.25 1.25 0 0 0 0 2.15l1.92 1.12v2.81a1.28 1.28 0 0 0 .62 1.09l4.25 2.45a1.28 1.28 0 0 0 1.24 0l4.25-2.45a1.28 1.28 0 0 0 .62-1.09V8.45l1.24-.73v2.72H16zm-3.73 5L8 13.74l-4.22-2.45V9.22l3.58 2.13a1.29 1.29 0 0 0 1.28 0l3.62-2.16zM8 10.27l-6.75-4L8 2.26l6.75 4z"
+                      />
+                    </svg>
+                  </span>
+                </div>
               </div>
               <div class="text ps-3">
                 <span class="date">2022-2023</span>
@@ -348,8 +388,9 @@ h3 {
   background-color: #fff;
 }
 
-.page .resume-wrap:hover .icon span {
-  background-color: #222222;
+.page .resume-wrap:hover .icon span svg path {
+  /* color: #222222; */
+  fill: black;
   font-weight: bold;
 }
 
@@ -363,17 +404,17 @@ h3 {
 }
 
 .icon-graduation {
-  font-family: "simple-line-icons";
-  speak: none;
-  font-style: normal;
+  /* font-family: "simple-line-icons"; */
+  /* speak: none; */
+  /* font-style: normal;
   font-weight: normal;
   text-transform: none;
-  line-height: 1;
+  line-height: 1; */
 }
 
-.icon-graduation::before {
+/* .icon-graduation::before {
   content: "\e019";
-}
+} */
 
 .icon-briefcase::before {
   content: "\e04b";
